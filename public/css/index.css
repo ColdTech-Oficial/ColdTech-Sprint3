@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Varela Round',sans-serif;
+    box-sizing: border-box;
+}
+a{
+    color: #fff;
+    text-decoration: none;
+    transition:0.3s ;
+}
+a:hover{
+    opacity: 0.7;
+}
+.logo{
+    height: 6vw;
+    text-decoration: uppercase;
+    letter-spacing: 4px;
+}
+nav{/* mudança no tamnho cor da nav */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Varela Round',sans-serif;
+    background-color: #23232e;
+    height: 11vh;
+    box-shadow: 0 0 1rem black;
+}
+main{ /*imagem de no fundo do site*/
+    background:url("../img/fundo.jpg") no-repeat center center;
+    background-size: cover;
+    height: 92vh; 
+    display: flex;
+}
+/*Mensagem na main*/
+.slogan{
+    margin: 15vw;
+    display: flex;
+    flex-direction: column;
+}
+.mensagem{
+    line-height:1.2em;
+    font-size: 2rem;
+    color: white;
+    font-weight: 700;
+    
+}
+
+/*Mensagem na main*/
+.nav-list{
+    list-style: none;
+    display: flex;
+}
+.nav-list Li{
+    letter-spacing: 3px;
+    margin-left: 32px;
+}
+/* hearder */
+
+/* iniciando responsividade mobile */
+.mobile-menu{
+    display: none;
+    cursor: pointer;
+}
+
+.mobile-menu div { /* Temporizador do menu mobile */
+    width: 32px;
+    height: 2px;
+    background-color: #fff;
+    margin: 8px;
+    transition: 0.3s;
+}
+@media (max-width:999px){
+    body{
+        overflow-x:hidden ;
+    }
+    .nav-list{ /*Inserindo tamanho e cor na parte do menu mobile do site */
+        position: absolute;
+        top: 11vh;
+        right: 0;
+        width: 30vw;
+        height: 90vh;
+        background: #23232e;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in; /* ease-in = chegada suave */
+    }
+    .nav-list li {
+        margin-left: 0;
+        opacity: 0;
+    }
+    .mobile-menu{
+        display: block;
+    }
+}
+.nav-list.active{ /* Classe que sera lançada para o java script */
+    transform: translateX(0);
+}
+@keyframes navLinkFade{ /* as letras vão surgir devagar por isso o nome fade */
+
+    from{
+opacity:0;
+transform: translateX(50px);
+    }
+    to{
+        opacity:1;
+        transform: translateX(0px); /* transação dos topicos em mobile chegando da direnta pra esquerda */
+    }
+}
+
+/*falando com o toggle do menu quando a classe mobile tiver ativa */
+.mobile-menu.active .line1{
+    transform: rotate(-45deg) translate(-8px, 8px); /*antacionando a primeira barra do botão menu do mobile */
+}
+.mobile-menu.active .line2{ /* Deixando a transição da 2 barra invisivel quando selecionar ela */
+    opacity: 0;
+}
+.mobile-menu.active .line3{
+    transform: rotate(45deg) translate(-5px, -7px); /*Rotacionando a terceira barra do botão menu do mobile */
+}
+
+/*Chamando o css do whatszapp */
+.whatsapp-link {
+    position: fixed;
+    width: 7vh;
+    height: 7vh;
+    bottom: 5vh;
+    right: 5vh;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    justify-content: center;
+    font-size: 3vh;
+    box-shadow: 1px 1px 2px #888;
+    z-index: 1000; /*Z-index especifica a ordem da pilha de um elemento do anúncio. Um elemento com número de ordem de empilhamento superior será exibido à frente de outro com número inferior.*/
+}
+
+.fa-whatsapp {
+    margin-top: 16px;
+}
+
+/*footer---------------------------------*/
+
+footer{
+    position: relative;
+    width: 100%;
+    background: #3586ff;
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/index.css" />
+        <link rel="stylesheet" href="css/cadastro.css" />
+        <title>ColdTech | Cadastro</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"><!--chamando o local do whatszapp-->
+        <script src="./js/funcoes.js"></script>
+
+
+    <link rel="icon" href="./assets/icon/favicon.ico">
+      </head>
+  <body>
+
+    <a class="whatsapp-link" href="https://web.whatsapp.com/send?phone=5511997988584" target="_blank"><!--Chamando o simbolo do whatszapp-->
+      <i class="fa fa-whatsapp"></i>
+    </a>
+
+
+    <header>
+      <nav>
+        <img class="logo" src="img/modelo4-fantasma.png"><a href="index.html"></a></img>
+            <div class="mobile-menu"> <!--Chamando o menu mobile-->
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div> <!--encerrando o menu mobile-->
+
+
+        <ul class="nav-list">
+          <li ><a href="index.html">Home</a></li>
+          <li><a href="Projeto.html">Projeto</a></li>
+          <li><a href="calculadora.html">Calculadora</a></li>
+          <li><a href="login.html" style="color: #9800b3;">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+   
+
+<div class="main-login">
+    <div class="left-login">
+        <h1>Faça o Login<br>Entre para o nosso time</h1>
+        <img src="img/luz.svg" class="left-login-imagem" alt="grafico animado">
+
+    </div>
+    <div class="right-login">
+
+        <div class="card-login">
+            <h1>Cadastro</h1>
+            <div class="textfield">
+                <label for="usuario">Usuario</label>
+                <input type="txt" name="usuario" placeholder="usuario" id="nome_input">
+            </div>
+            <div class="textfield">
+                <label for="CNPJ">CNPJ</label>
+                <input type="TXT" name="CNPJ" placeholder="CNPJ" id="cnpj_input">
+            </div><div class="textfield">
+                <label for="usuario">E-mail</label>
+                <input type="txt" name="E-mail" placeholder="E-mail" id="email_input">
+            </div>
+            <div class="textfield">
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" placeholder="senha" id="senha_input">
+            </div>
+            <div class="textfield">
+                <label for="senha">Confirme a senha</label>
+                <input type="password" name="senha" placeholder="senha" id="confirmacao_senha_input">
+            </div>
+            <button class="btn-login" onclick="cadastrar()">Login</button>
+            <label class="endfield" for="txt">Já tem uma conta? <a href="login.html">Login</a>
+
+
+                
+        </div>
+       
+        </div>
+    </div>
+
+</div>
+
+    
+    <script src="js/mobile-navbar.js"></script>
+
+    <footer></footer>
+  </body>
+</html>
+
+<script>
+function cadastrar() {
+    aguardar();
+
+    var nomeVar = nome_input.value;
+    var cnpjVar = cnpj_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+
+    if (nomeVar == "" ||cnpjVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        cardErro.style.display = "block"
+        mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
+
+        finalizarAguardar();
+        return false;
+    }
+    else {
+        setInterval(sumirMensagem, 5000)
+    }
+
+    if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+        cardErro.style.display = "block"
+        mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
+        finalizarAguardar();
+        return false;
+    }
+    else {
+        setInterval(sumirMensagem, 5000)
+    }
+
+    if (senhaVar != confirmacaoSenhaVar) {
+        cardErro.style.display = "block"
+        mensagem_erro.innerHTML = "As senhas inseridas devem ser iguais para prosseguir!";
+        finalizarAguardar();
+        return false;
+    }
+    else {
+        setInterval(sumirMensagem, 5000)
+    }
+
+
+    fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            nomeServer: nomeVar,
+            cnpjServer: cnpjVar,
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
+            window.location = "login.html";
+            limparFormulario();
+            finalizarAguardar();
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+    });
+
+    return false;
+}
+
+function sumirMensagem() {
+    cardErro.style.display = "none"
+}
+
+</script>
