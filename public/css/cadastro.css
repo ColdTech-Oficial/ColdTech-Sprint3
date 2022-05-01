@@ -1,5 +1,9 @@
 body * {
     box-sizing: border-box;
+    
+}
+.body{
+    background: #121216;
 }
 .main-login{
     width: 100%;
