@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-cs">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/footer.css">
+    <title>ColdTech | Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!--chamando o local do whatszapp-->
+    <script src="https://kit.fontawesome.com/e6ebc2d772.js" crossorigin="anonymous"></script>
+    <!--FonteWasome chama os icones-->
+
+</head>
+
+<body>
+
+    <a class="whatsapp-link" href="https://web.whatsapp.com/send?phone=5511997988584" target="_blank">
+        <!--Chamando o simbolo do whatszapp-->
+        <i class="fa fa-whatsapp"></i>
+    </a>
+
+
+    <header>
+        <nav>
+            <img class="logo" src="img/modelo4-fantasma.png"><a href="index.html"></a></img>
+            <div class="mobile-menu">
+                <!--Chamando o menu mobile-->
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <!--encerrando o menu mobile-->
+
+
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Projeto.html">Projeto</a></li>
+                <li><a href="calculadora.html">Calculadora</a></li>
+                <li><a href="login.html" style="color: #9800b3;">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="main-login">
+        <div class="left-login">
+            <h1>Faça login<br>Entre para o nosso time</h1>
+            <img src="img/grafico.svg" class="left-login-imagem" alt="grafico animado">
+
+        </div>
+        <div class="right-login">
+
+            <div class="card-login">
+                <h1>Login</h1>
+                '' <div class="textfield">
+                    <label for="usuario">Usuario</label>
+                    <input type="txt" name="usuario" placeholder="usuario">
+                </div>
+                <div class="textfield">
+                    <label for="senha">Senha</label>
+                    <input type="password" name="senha" placeholder="senha">
+                </div>
+                <button class="btn-login" onclick="entrar()">Login</button>
+                <label class="endfield" for="txt">Não tem uma conta? <a href="cadastro.html">Cadastrar-se</a></label>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="js/mobile-navbar.js"></script>
+
+    <footer>
+        <div class="main-footer">
+            <!--Rodapé do site || Conteudo-->
+            <div class="mensagem-footer">
+                <h1>Nos envie um e-mail, faça seu orçamento, melhore seu produto e aumente seus lucros</h1>
+                <div class="mensagem-footer-aa">
+                    <h4>Orçamentos somente por e-mails/whatszapp</h4>
+                </div>
+                
+            </div>
+            
+            <hr>
+
+            <div class="center-footer">
+                <div class="left-center">
+                    <label for="Nome-footer"><a>Contato</a></label>
+                    <div class="orcafield">
+                        
+                        <input type="text" name="Nome" placeholder="Nome">
+                    </div>
+                    <div class="orcafield">
+                        
+                        <input type="text" type="email" required placeholder="Email">
+                    </div>
+
+                    <div class="orcafield">
+                        <textarea type="text" rows="2" cols="25" placeholder="Escreva sua mensagem"></textarea>
+                    </div>
+
+                    <div class="btn">
+                        <button type="submit">Enviar</button>
+                    </div>
+                </div>
+                <!--Left-center-->
+
+
+
+                <div class="right-center">
+                    <div class="box-footer">
+                        <div class="filha-box">
+                            
+                    <div class="txt-field-footer">
+                        <label for="endereço-footer">Endereço:</label>
+                        <span class="text" name="endereco">Rua Hadock Lobo <br>São Paulo - sp</span>
+                    </div>
+                    <br>
+                    <div class="txt-field-footer">
+                        <label for="social-footer">social:</label>
+                        <span class="text"><A href="#">linkidin laalal</A></span>
+                    </div>
+                </div><!-- filha box-->
+
+                <div class="neta-box">
+
+                    <div class="txt-field-footer">
+                        <label for="text-footer" name="email">email:</label>
+                        <span class="txt-field-footer-email"><A href="#">ColdTech_oficial@protonmail.com</A></span>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="txt-field-footer">
+                        
+                        <label for="telefone-footer" name="telefone">telefone:</label>
+                        <span class="text">+55 11 99798-8584</span>
+                    </div>
+                </div>
+                </div>
+                </div>
+                <!--right center-->
+
+            </div>
+
+                <hr>
+
+                <div class="down-footer">
+
+                    <label>₢Todos os direitos reservados. Desenvolvido por ColdTech</label>
+
+                </div>
+        </div>
+        <!--main-footer-->
+
+
+    </footer>
+</body>
+
+</html>
