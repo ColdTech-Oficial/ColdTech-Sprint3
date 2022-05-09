@@ -27,7 +27,7 @@ nav{/* mudança no tamnho cor da nav */
     box-shadow: 0 0 1rem black;
 }
 main{ /*imagem de no fundo do site*/
-    background:url("../img/fundo.jpg") no-repeat center center;
+    
     background-size: cover;
     height: 92vh; 
     display: flex;
