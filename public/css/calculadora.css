@@ -1,0 +1,194 @@
+body{
+    background-color: #121216;
+}
+.corpo{
+    padding: 3%;
+    background-color: #201b2c;
+    
+}
+.nome{
+    margin-top: 40px;
+    font-size: 2vw;
+    color: aqua;
+}
+.div_lados{
+    flex-direction: row;
+    display: flex;
+    
+}
+.caculadora{
+    
+    height: 90vh;
+    width: 22vw;
+    background-color: rgb(255, 255, 255);
+    border: 0;
+    border-radius: 10px;    
+    display: flex;
+    flex-direction: column;
+    background: #2f2841;
+    box-shadow: 0px -10px 40px #00000056;
+    
+}
+.textfield{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px 0px; /* espaçamento entre os itens e a propia borda*/
+}
+.textfield > input{
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: #514869;
+    color:#f0ffffde;
+    font-size: 12pt;
+    box-shadow:  0px 10px 40px #00000056;
+    outline: none;
+    box-sizing: border-box;
+}/* Definindo cor,tamanho, borda, sombra, cor dentro da input */
+.textfield > label{
+    color: #f0ffffde;
+    margin-bottom: 10px;
+}/* Cor e margin to lavel*/
+.textfield > input::placeholder{
+    color: #f0ffff94;
+}/*Estilizando o placeholder das input*/
+.div_respostas{
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    
+}
+.div_button{
+   
+    justify-content: center;
+    display: flex;
+    
+}
+.ipt{
+    width: 90%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: #514869;
+    color:#f0ffffde;
+    font-size: 12pt;
+    outline: none;
+    box-sizing: border-box;
+    
+}
+.textfield{
+    margin-top: 90px;
+    width: 90%;
+}
+
+.div_button{
+    margin-top: 20vh;
+}
+
+
+
+
+.combosCaixa{
+    
+    width: 65vw;
+    height: 30vh;
+    margin-left: 5vw;
+    align-items: center;
+}
+.grafico{
+    background-color: white;
+    width: 65vw;
+    height: 38vh;
+    margin-left: 5vw;
+    border-radius: 1vh; 
+    margin-top: 22vh;
+    box-shadow: 0px -10px 40px #00000056;
+}
+.parte{
+    flex-direction: column;
+    display: flex;
+}
+.combo1{
+    background-color: white;
+    width: 30vw;
+    height: 22vh;
+    
+    border-radius: 1vh;
+    box-shadow: 0px -10px 40px #00000056;
+}
+.combo2{
+    background-color:white;
+    width: 30vw;
+    height: 22vh;
+    border-radius: 1vh;
+    box-shadow: 0px -10px 40px #00000056;
+    z-index: 20px;
+}
+.combo3{
+    background-color: white;
+    width: 30vw;
+    height: 22vh;
+    border-radius: 1vh;
+    box-shadow: 0px -10px 40px #00000056;
+}
+.combo4{
+    background-color: white;
+    width: 30vw;
+    height: 22vh;
+    border-radius: 1vh; 
+    box-shadow: 0px -10px 40px #00000056;
+}
+.filha_caixa{
+    justify-content: space-evenly 26vw;
+    display: flex;
+   
+}
+
+.combo2{
+    margin-top: 5vh;
+}
+
+.neta2{
+    margin-left: 5vw;
+}
+.combo4{
+    margin-top: 5vh;
+}
+#texto1{
+    font-size: large;
+    
+}
+#texto2{
+    font-size: large;
+    
+}
+#texto3{
+    font-size: large;
+  
+}
+#texto4{
+    font-size: large;
+   
+}
+.btn-login{
+    width: 100%;
+    padding: 16px 0px;
+    margin: 25px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 800;
+    letter-spacing: 3px;/* letter-spacing do texto é usada para controlar o espaço em branco entre as letras. */
+    color: #514869;
+    background:#00ff88 ;
+    cursor: pointer;
+    
+}/*estilzando o botão definindo cores, tamanho, borda, sombra e os espaços entre as letras*/
+.btn-login:hover{
+    box-shadow: 0px 10px 40px -12px #00ff88;
+}

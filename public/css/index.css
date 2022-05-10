@@ -141,7 +141,9 @@ transform: translateX(50px);
 .fa-whatsapp {
     margin-top: 16px;
 }
-
+.idlogin{
+    color: #00ff88;
+}
 /*footer---------------------------------*/
 
 footer{
