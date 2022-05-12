@@ -25,7 +25,7 @@ body{
     color: var(--blue);
 }
 .div_lados{
-    flex-direction: row;
+    flex-direction: row-reverse;
     display: flex;
     
 }
@@ -136,21 +136,18 @@ body{
     margin-top: 5vh;
 }
 
-
-
-
 .combosCaixa{
     
     width: 65vw;
     height: 30vh;
-    margin-left: 5vw;
+    
     align-items: center;
 }
 .grafico{
     background-color: white;
     width: 65vw;
     height: 38vh;
-    margin-left: 5vw;
+    margin-right: 5vw;
     border-radius: 1vh; 
     margin-top: 22vh;
     box-shadow: 0px 10px 20px var(--black1);
