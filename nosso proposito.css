@@ -9,7 +9,7 @@ body{
     display: flex;
     justify-content: space-evenly;
     width: 100vw;
-    border-bottom: 5px solid aqua;
+    border-bottom: 5px solid #287bff;
 }
 
 .logo{
@@ -21,7 +21,7 @@ body{
 .header h1{
     
     margin: 20px;
-    color: aqua;
+    color: #287bff;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 38px;
     
@@ -54,7 +54,7 @@ body{
 .texto {
     
   
-    color: aqua;
+    color: #287bff;
     text-align: center;
     display: flex;
     float: right;
@@ -67,7 +67,7 @@ body{
 .foto{
     
 
-    color: aqua;
+    color: #287bff;
     margin: 3%;
     display: flex;
     flex-direction: column-reverse;
@@ -88,7 +88,7 @@ body{
 }
 footer{
 
-    border-top: 5px solid aqua;
+    border-top: 5px solid #287bff;
     height: 300px;
     width: 1366px;
     color: aliceblue;
