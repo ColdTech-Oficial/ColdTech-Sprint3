@@ -1,0 +1,7 @@
+comando ssh -i 
+
+ssh -i ColdTech_1605.pem MaquinaColdTech@40.83.14.168
+
+yes
+
+top
