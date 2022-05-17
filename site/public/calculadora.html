@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/top.css" />
     <title>ColdTech</title>
     <script type="text/javascript" src="js/Calculadora.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"><!--chamando o local do whatszapp-->
@@ -31,7 +31,6 @@
         <ul class="nav-list">
           <li><a href="index.html">Home</a></li>
           <li><a href="Projeto.html">Projeto</a></li>
-          <li><a href="nosso proposito.html">Nosso propósito</a></li>
           <li><a href="calculadora.html" style="color: #287bff;">Calculadora</a></li>
           <li><a href="login.html">Login</a></li>
         </ul>
@@ -200,36 +199,3 @@
     <script src="js/mobile-navbar.js"></script>
   </body>
 </html>
-<script>
-  const labels = [
-    '0',
-    '10',
-    '50',
-    '100',
-    '1000',
-    '100000',
-  ];
-
-  const data = {
-    labels: labels,
-    datasets: [{
-      label: 'Grafico de Lucros',
-      backgroundColor: '#00ff88',
-      borderColor: '#00ff88',
-      data: [0, 10, 5, 2, 20, 30, 45],
-    }]
-  };
-
-  const config = {
-    type: 'line',
-    data: data,
-    options: {}
-  };
-</script>
-
-<script>
-  const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
-</script>

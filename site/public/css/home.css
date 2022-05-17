@@ -4,6 +4,9 @@
     margin: 0;
     padding: 0;
 }
+body{
+    background-color: #121216;
+}
 :root
 {
     --blue: #287bff;
@@ -150,14 +153,15 @@ transform: translateX(50px);
     height: 70vh;
 }
 .introducao-div{
-    margin-top: 20px;
-    height: 74vh;
+
+    height: 80vh;
     flex-direction: row;
     display: flex;
+    background-color: var(--white);
 }
 .introducao-div1{
-    margin-top: 50px;
-    height: 50vh;
+    background-color: var(--white);
+    height: 45vh;
     flex-direction: row;
     display: flex;
 }
@@ -178,7 +182,7 @@ transform: translateX(50px);
     color: var(--black2);
 }
 .txtfile > h3 {
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .right-introduco{
@@ -190,9 +194,9 @@ transform: translateX(50px);
     padding: 50px;
 }
 .txtfile-right > label{
-    font-size: 27px;
+    font-size: 20px;
     font-weight: 300;
-    font-weight: 300;
+    line-height: 1.5;
 }
 .div-servico{
     height: 90vh;
@@ -234,7 +238,7 @@ transform: translateX(50px);
     height: 10vh;
     width: 21vw;
     position: absolute;
-    margin-left: 41%;
+    margin-left: 39%;
     margin-top: -30px;
     background-color: var(--black1);
     border: 10vh;
@@ -299,6 +303,7 @@ transform: translateX(50px);
     height: 40vh;
     display: flex;
     align-items:  center;
+    background-color: var(--white);
 }
 .logos{
     flex-direction: row;
@@ -310,7 +315,7 @@ transform: translateX(50px);
     height: 13vh;
 }
 .div-calculadora{
-    height: 80vh;
+    height: 70vh;
     width: 100%; 
     background-color: var(--blue2);
 }
@@ -319,4 +324,65 @@ transform: translateX(50px);
     justify-content: center;
     align-items: center;
     display: flex;
+}
+.main-servico{
+    flex-direction: row;
+    display: flex;
+    height: 100%;
+}
+.left-servico{
+    height: 70vh;
+    width: 50vw;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.txtcal{
+    margin: 30px;   
+    width: 30vw;
+
+}
+.txtcal > label{
+    font-size: 20px;
+    font-weight: 500;
+}
+.right-servico{
+    width: 50vw;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.txt-right{
+    
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    width: 600px;
+}
+
+.txt-right > label{
+    font-size: 30px;
+    font-weight: 500;
+}
+.txt-right1{
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    width: 400px;
+    
+    margin-top: 25px;
+}
+.txt-right1 > button{
+    width: 100%;
+    padding: 16px 0px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 800;
+    letter-spacing: 3px;/* letter-spacing do texto é usada para controlar o espaço em branco entre as letras. */
+    color: #514869;
+    background:var(--black1);
+    cursor: pointer;
+    
 }

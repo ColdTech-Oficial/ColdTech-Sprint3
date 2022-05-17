@@ -13,34 +13,40 @@ ax_num3= 0
         mostrar2.innerHTML = `R$${ax_real.toFixed(2)}`
         mostrar3.innerHTML = `R$${ax_num3.toFixed(2)}`
         mostrar4.innerHTML = `R$${ax_num2.toFixed(2)}`
-        const labels = [
-          'Grafico de lucros'
-      ];
       
-      const data = {
-        labels: labels,
+        const labels = [
+            '0',
+          
+        ];
+        
+        const data = {
+            labels: labels,
         datasets: [{
           label: 'Seu lucro sem nosso serviço',
-          backgroundColor: 'rgb(255, 99, 132)',
-          borderColor: 'rgb(255, 99, 132)',
+          backgroundColor: 'red',
+          borderColor: 'red',
           data: [ax_num2],
         },
         {
-          label: 'Seu lucro com nosso serviço',
-          backgroundColor: 'blue',
-          borderColor: 'blue',
-          data: [ax_num3],
+            label: 'Seu lucro com nosso serviço',
+            backgroundColor: 'blue',
+            borderColor: 'blue',
+            data: [ax_num3],
         }
-      ]
-      };
+    ]
+    };
+    console.log(ax_num3)
     
       const config = {
-        type: 'bar',
-        data: data,
+          type: 'bar',
+          data: data,
         options: {}
       };
-      const myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-        );
+      
+  
+            const myChart = new Chart(
+              document.getElementById('myChart'),
+              config
+            );
+       
       }
