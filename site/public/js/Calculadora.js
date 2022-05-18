@@ -4,7 +4,7 @@ ax_num3= 0
  function calcular() {
         
          ax_num1 = Number(ipt_peso.value)
-         ax_num2 = Number(ipt_valor.value *0.70)
+         ax_num2 = Number(ipt_valor.value *0.50)
          ax_num3= Number(ipt_valor.value*0.90)
          ax_inv = Number(ax_num2-ax_num3)
          ax_real= ax_inv*-1
@@ -23,14 +23,14 @@ ax_num3= 0
             labels: labels,
         datasets: [{
           label: 'Seu lucro sem nosso serviço',
-          backgroundColor: 'red',
-          borderColor: 'red',
+          backgroundColor: 'rgb(233, 30, 30)',
+          borderColor: 'rgb(233, 30, 30)',
           data: [ax_num2],
         },
         {
             label: 'Seu lucro com nosso serviço',
-            backgroundColor: 'blue',
-            borderColor: 'blue',
+            backgroundColor: 'rgb(25, 25, 175)',
+            borderColor: 'rgb(25, 25, 175)',
             data: [ax_num3],
         }
     ]
