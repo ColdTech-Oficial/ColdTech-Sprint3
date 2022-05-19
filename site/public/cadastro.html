@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AcquaTec | Cadastro</title>
+    <title>ColdTech | Cadastro</title>
 
 
     <script src="./js/funcoes.js"></script>
 
 
-    <link rel="icon" href="./assets/icon/favicon.ico">
+    <link rel="icon" href="img/mmodelo4-fantasma.png">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -61,6 +61,14 @@
             <div class="textfield">
                 <label for="usuario">Nome</label>
                 <input id="nome_input" type="text" placeholder="Seu nome">
+            </div>
+            <div class="textfield">
+                <label for="usuario">CNPJ</label>
+                <input id="CNPJ_input" type="text" placeholder="Seu CNPJ">
+            </div>
+            <div class="textfield">
+                <label for="usuario">telefone</label>
+                <input id="telefone_input" type="text" placeholder="Seu telefone">
             </div>
             <div class="textfield">
                 <label for="senha">E-mail</label>
@@ -194,11 +202,13 @@
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var nomeVar = nome_input.value;
+        var cnpjVar = CNPJ_input.value;
+        var telefoneVar = telefone_input.value;
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == ""||cnpjVar ==""||telefoneVar =="") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "preencha os campos de cadastro";
 
@@ -219,6 +229,8 @@
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
+                cnpjServer: cnpjVar,
+                telefoneServer: telefoneVar,
                 emailServer: emailVar,
                 senhaServer: senhaVar
             })
