@@ -1,4 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
+const crypto = require('bcrypt')
 
 var sessoes = [];
 
@@ -33,29 +34,46 @@ function entrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
-        
+
         usuarioModel.entrar(email, senha)
             .then(
                 function (resultado) {
                     console.log(`\nResultados encontrados: ${resultado.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+                    console.log(`Resultados: ${JSON.stringify(resultado[0])}`); // transforma JSON em String
 
                     if (resultado.length == 1) {
-                        console.log(resultado);
-                        res.json(resultado[0]);
+                        var senhaPasse = JSON.stringify(resultado[0])
+                        senhaPasse = senhaPasse.replace(`{"senha":"`, "")
+                        senhaPasse = senhaPasse.replace(`"}`, "")
+                        
+                        
+                        senha = crypto.hashSync(senha, '$2b$10$jbgzEofZlSOEzrwOeyXlR.');
+                        
+                        if (senhaPasse === `${senha}`) {
+                            
+                            res.json(resultado)
+
+                        }else {
+                            res.status(403).send("Email e/ou senha inválido(s)");
+                        }
+
                     } else if (resultado.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
-                    } else {
+                    }
+                    else {
                         res.status(403).send("Mais de um usuário com o mesmo login e senha!");
                     }
                 }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
+                )
+
+
+                    .catch(
+                        function (erro) {
+                            console.log(erro);
+                            console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                            res.status(500).json(erro.sqlMessage);
+                        }
+                    );
     }
 
 }
@@ -64,7 +82,7 @@ function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
     var cnpj = req.body.cnpjServer;
-    var telefone= req.body.telefoneServer;
+    var telefone = req.body.telefoneServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
@@ -76,9 +94,10 @@ function cadastrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else {
-        
+           //Encripta a senha antes de salvar no banco
+        senha = crypto.hashSync(senha, '$2b$10$jbgzEofZlSOEzrwOeyXlR.');
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome,cnpj,telefone, email, senha)
+        usuarioModel.cadastrar(nome, cnpj, telefone, email, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);
