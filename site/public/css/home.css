@@ -5,6 +5,9 @@
     padding: 0;
 }
 body{
+    background-color: var(--white);
+}
+.cor-footer{
     background-color: #121216;
 }
 :root
@@ -154,7 +157,7 @@ transform: translateX(50px);
 }
 .introducao-div{
 
-    height: 80vh;
+    height: 68vh;
     flex-direction: row;
     display: flex;
     background-color: var(--white);
