@@ -30,10 +30,9 @@ nav{/* mudança no tamnho cor da nav */
     display: flex;
     justify-content: space-around;
     align-items: center;
-    
     background-color: var(--black1);    
     height: 11vh;
-    box-shadow: 0 0 1rem black;
+    box-shadow: 1px 1px 20px #888;
 }
 main{ /*imagem de no fundo do site*/
     

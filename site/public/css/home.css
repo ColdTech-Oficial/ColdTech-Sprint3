@@ -143,13 +143,50 @@ transform: translateX(50px);
 .div-main{
     height: auto;
 }
+.div-txt{
+    margin: 100px;
+    width: 50vw;
+    flex-direction: column;
+    display: flex;
+}
+.div-txt > label{
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--white);
+    font-variant: small-caps;
+}
+.div-txt > a{
+    margin-top: 20px;
+    display: flex;
+    width: 480px;
+    font-variant: small-caps;
+}
+.div-logao{
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.div-logao > img{
+    animation: reverse;
+    border-radius: 150px;
+    height: 300px;
+    box-shadow: 10px 10px 5px 10px var(--blue2);
+}
+.div-logao > label{
+    font-size: 70px;
+    font-variant: small-caps;
+    font-weight: 700;
+    color: var(--white);
+}
 .logo-div{
-    background-color: var(--blue);
+    background:  linear-gradient( #287bff 100px,  #1f5ab9 50vh);
     height: 80vh;
     width: 100%;
     align-items: center;
-    justify-content: center;
     display: flex;
+    box-shadow: 0px 10px 10px var(--black1) ;
 }
 
 .logo-div > img{
