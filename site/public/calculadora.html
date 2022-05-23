@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/calculadora.css">
 	<link rel="icon" href="img/modelo4-fantasma.png">
   </head>
-  <body>
+  <body onload="configurarGrafico()">
 
   
 
@@ -47,12 +47,12 @@
                     
                     <div class="textfield">
 
-                    <label for="usuario">peso da carga</label>
+                    <label for="usuario">peso</label>
                     <input class="ipt" id="ipt_peso" placeholder="Entre com o peso da carga" type="number">
                     </div>
 
                     <div class="textfield">
-                    <label for="usuario">valor da carga</label>
+                    <label for="usuario">valor</label>
                     <input class="ipt" id="ipt_valor" placeholder="Entre com o valor da carga" type="number">
                     </div>
                 </div>
@@ -73,7 +73,7 @@
 
                         <div class="neta_caixa">
                             <div class="combo1">
-                                <center><span id="texto1">Peso total no transporte em Kg:</span><br><br><br>
+                                <center><span id="texto1">Peso total em Kg:</span><br><br><br>
                                 <span id="mostrar1" style="color: rgb(24, 185, 24);"></span></center>
                             </div>
                             <div class="combo2">
@@ -85,12 +85,12 @@
 
                         <div class="neta2">
                             <div class="combo3">
-                                <center><span id="texto3">Valor da sua carga com o nossos serviços:</span><br><br><br>
+                                <center><span id="texto3">Valor com o nossos serviços:</span><br><br><br>
                                 <span id="mostrar3" style="color: rgb(24, 185, 24);"></span></center>
                             </div>
 
                             <div class="combo4">
-                                <center><span id="texto4">Valor da sua carga sem nossos serviços:</span><br><br><br>
+                                <center><span id="texto4">Valor sem nossos serviços:</span><br><br><br>
                                 <span id="mostrar4" style="color: rgb(233, 30, 30);"></span></center>
                             </div>
                         </div>
@@ -100,7 +100,8 @@
 
                 <div class="grafico">
                     <span style="width: 10px;">
-                        <canvas style=" width: 100%;height: 100%;" id="myChart"></canvas>
+                        <canvas style=" width: 100%;height: 100%;" id="myChart1" ></canvas>
+                        <canvas style=" width: 100%;height: 100%;" id="myChart2" style="display: none;"></canvas>
                         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                     </span>
                     
