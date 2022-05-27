@@ -165,6 +165,7 @@ footer{
 }
 
 .main-footer{
+    
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -198,7 +199,6 @@ footer{
 }
 .center-footer{  
     width: 100%;
-    
     justify-content: center;
     flex-direction: row;
     display: flex;
@@ -266,7 +266,7 @@ footer{
 
 
 .right-center{
-    height: 40vh;
+    height: 15vh;
     width: 55vw;
     align-items: center;
     
@@ -274,7 +274,7 @@ footer{
     display: flex;    
 }
 .box-footer{
-    height: 100%;
+    
     width: 100%;
     flex-direction: row; 
     display: flex;
@@ -327,66 +327,20 @@ footer{
     border-top: 2px solid var(--blue);
 }
 
-
-@media (max-width:999px){
-    .main-footer{
-        flex-direction: column;
-        display: flex;
-        width: 100%;
-    }
-    .mensagem-footer{
-        height: 40vh;
-    }
-    .center-footer{
-        flex-direction: column;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: none;
-    }
-    .mensagem-footer > h1{
-        font-size: 20px;
-        font-weight: 200;
-        width: 100%;
-    }
-    .filha-box{
-        flex-direction: column;
-        display: flex;
-        margin-left: none;
-        align-items: center;
-    }
-    .orcafield > input {
-        width: 100%;
-    }
-    .orcafield > textarea{
-        width: 100%;
-    }
-    .btn > button{
-        width: 100%;
-    }
-
-    .down-footer > label{
-        font-size: 12px;
-        color: #23232e;
-    }
-    .box-footer{
-        width: 100%;
-        
-    }
-    .filha-box{
-        width: 90%;
-        flex-direction: column ;
-        justify-content: space-between;
-        display: flex;
-    }
-    .neta-box{
-        width: 90%;
-        flex-direction: column ;
-        justify-content: space-between;
-        display: flex;
-    }
-    .txt-field-footer-email{
-        font-size: 11px;
-        width:28vw;
-    }
+/* help desck*/
+.link-help{
+    position: fixed;
+    margin-left: 92%;
+    margin-top: 90vh;
+}
+.link-help button{
+    height: 40px;
+    width: 80px;
+    background-color: var(--blue    );
+    border: 0;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white ;
+    
 }

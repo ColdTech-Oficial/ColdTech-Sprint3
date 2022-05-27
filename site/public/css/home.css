@@ -234,14 +234,14 @@ transform: translateX(50px);
     padding: 50px;
 }
 .txtfile-right > label{
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 300;
     line-height: 1.5;
 }
 
 /*PArte da index projeto */
 .div-servico{
-    height: 90vh;
+    height: 70vh;
     width: 100%;
     display: flex;
 }
@@ -254,11 +254,24 @@ transform: translateX(50px);
 
 }
 .left{
-    margin: 50px;
+    margin: 80px;
     
 }.left h3{
     font-size: 30px;
-}.btns button{
+    
+}
+.left label{
+    margin-left: 23px;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--grey)
+}
+.btns{
+    height: 100%;
+    
+}
+.btns button{
+    margin-top: 200px;
     width: 100%;
     padding: 16px 0px;
     border: none;
@@ -270,10 +283,20 @@ transform: translateX(50px);
     cursor: pointer;
     
 }
+
+
 .box-servico-right{
     width: 50vw;
     height: 100%;
     background:  linear-gradient( #ffffff 100px,  #ebebeb 50vh);
+}
+.txts-box{
+    margin: 80px;
+}
+.txts-box label{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
 }
 
 
