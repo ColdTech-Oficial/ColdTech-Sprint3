@@ -12,7 +12,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Barlow', "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: black;
+  background-color: var(--grey);
 }
 
 .container {
@@ -125,19 +125,18 @@ body {
   left: 0;
   z-index: 999;
   height: 100vh;
-  width: 25%;
+  width: 22%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
-  border-right: 3px solid #32b9cd;
-  background-color: #212124;
-  /* border: 3px solid pink; */
+  border-right: 2px solid #32b9cd;
+  background-color: var(--black1);
 }
 
 .dash-right {
   display: flex;
-  width: 75%;
+  width: 80%;
   height: fit-content;
   background-color: #161618;
   position: relative;
@@ -146,7 +145,7 @@ body {
 }
 
 .header-left h1 {
-  color: #32b9cd;
+  color: var(--white);
 }
 
 .hello {

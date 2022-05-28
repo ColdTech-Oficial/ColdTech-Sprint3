@@ -129,29 +129,6 @@ transform: translateX(50px);
     transform: rotate(45deg) translate(-5px, -7px); /*Rotacionando a terceira barra do botão menu do mobile */
 }
 
-/*Chamando o css do whatszapp */
-.whatsapp-link {
-    position: fixed;
-    width: 7vh;
-    height: 7vh;
-    bottom: 5vh;
-    right: 5vh;
-    background-color: #25d366;
-    color: #fff;
-    border-radius: 50%;
-    text-align: center;
-    justify-content: center;
-    font-size: 3vh;
-    box-shadow: 1px 1px 2px #888;
-    z-index: 1000; /*Z-index especifica a ordem da pilha de um elemento do anúncio. Um elemento com número de ordem de empilhamento superior será exibido à frente de outro com número inferior.*/
-}
-
-.fa-whatsapp {
-    margin-top: 16px;
-}
-.idlogin{
-    color: var(--blue);
-}
 
 
 
