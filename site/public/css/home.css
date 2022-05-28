@@ -171,7 +171,7 @@ transform: translateX(50px);
 .div-logao > img{
     animation: reverse;
     border-radius: 150px;
-    height: 300px;
+    height: 250px;
     box-shadow: 10px 10px 5px 10px var(--blue2);
 }
 .div-logao > label{

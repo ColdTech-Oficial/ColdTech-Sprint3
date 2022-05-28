@@ -17,6 +17,7 @@ function entrar(email, senha) {
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
+
 }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
