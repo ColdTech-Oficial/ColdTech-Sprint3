@@ -1,9 +1,11 @@
 /* pagina mural */
+@fa-font-path:   "../font";
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 *,
 body {
   
   font-family: 'Ubuntu', sans-serif;
+  
 }
 :root
 {
@@ -12,6 +14,7 @@ body {
     --grey: #f5f5f5;
     --black1: #222;
     --black2: #999;
+    --black3: rgb(107, 107, 107);
 }
 
 .dash-right .avisos {
@@ -29,6 +32,7 @@ body {
 
 .dash-right .avisos .container .div-form {
   width: 100%;
+  
 }
 
 .dash-right .avisos .container .div-form #form_postagem {
@@ -41,28 +45,38 @@ body {
 
 .dash-right .avisos .div-form input {
   width: 100%;
-  border-radius: 5px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
 }
 
 .dash-right .avisos .div-form textarea {
   width: 100%;
-  /* color: #E6005A; */
-  border: 3px solid #e6005a;
+  border: none;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 10px;
+  
 }
 
 .dash-right .avisos .div-form button {
+  
   cursor: pointer;
   font-family: "Exo 2", sans-serif;
   border: 0;
-  border-radius: 5px;
+  border-radius: 20px;
   font-weight: 600;
   font-size: 18px;
   padding: 10px 15px;
   color: white;
-  background-color: #e6005a;
+  background-color: var(--blue);
   width: 120px;
+}
+.dash-right .avisos .div-form button:hover {
+  background-color: var(--grey);
+  color: var(--blue);
+}
+.dash-right .avisos .div-form button:active {
+  color: #212124;
 }
 
 .publicacao-btn-editar {
@@ -115,7 +129,7 @@ body {
 /* pagina graficos */
 
 .dash-header {
-  background-color: var(--black1);
+  background-color: var(--blue);
 }
 
 .dash {
@@ -123,48 +137,85 @@ body {
   position: relative;
   top: 0;
   left: 25%;
-  background-color: var(--white);
-
-  /* width: 75%;
-    display: flex;
-    background-color: #161618;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;*/
+  background-color: var(--grey);
   height: 100vh;
 }
 
+
+/* Alertas */
 .regua {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  margin-top: 30px;
+  margin-top: 90px;
+}
+.regua h4  {
+  color: rgb(216, 216, 216);
 }
 
 .perigo-frio {
-  background-color: #5c6bc0;
-box-shadow: 0px 10px 20px #212124 ;
+  background-color: var(--white);
+  box-shadow: 0 7px 25px rgb(0 0 0 / 8%);
+  border-radius: 20px;
+  color: var(--blue);
+}
+.perigo-frio:hover {
+  background-color: var(--blue);
+  cursor: pointer;
+  color: var(--white);
+  
 }
 
 .perigo-quente {
-  background-color: #ff7043;
-  box-shadow: 0px 10px 20px #212124 ;
+  background-color: var(--white);
+  box-shadow: 0 7px 25px rgb(0 0 0 / 8%);
+  border-radius: 20px;
+  color: var(--blue);
+}
+.perigo-quente:hover {
+  background-color: var(--blue);
+  cursor: pointer;
+  color: var(--white);
 }
 
 .alerta-frio {
-  background-color: #42a5f5;
-  box-shadow: 0px 10px 20px #212124 ;
+  color: var(--blue);
+  background-color: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 7px 25px rgb(0 0 0 / 8%);
+  border-radius: 20px;
+}
+.alerta-frio:hover {
+  background-color: var(--blue);
+  cursor: pointer;
+  color: var(--white);
 }
 
 .alerta-quente {
-  background-color: #ffee58;
-  box-shadow: 0px 10px 20px #212124 ;
+  color: var(--blue);
+  border-radius: 20px;
+  background-color: var(--white);
+  box-shadow: 0 7px 25px rgb(0 0 0 / 8%);
+  
+}
+.alerta-quente:hover {
+  color: var(--blue);
+  background-color: var(--blue);
+  cursor: pointer;
+  color: var(--white);
 }
 
 .ideal {
-  background-color: #9ccc65;
-  box-shadow: 0px 10px 20px #212124 ;
+  border-radius: 20px;
+  color: var(--blue);
+  background-color: var(--white);
+  box-shadow: 0 7px 25px rgb(0 0 0 / 8%);
+}
+.ideal:hover {
+  background-color: var(--blue);
+  cursor: pointer;
+  color: var(--white);
 }
 
 .item-regua {
@@ -174,6 +225,8 @@ box-shadow: 0px 10px 20px #212124 ;
   text-align: center;
   padding-top: 15px;
 }
+
+/* Alertas */
 
 .cards {
   display: flex;
@@ -192,9 +245,11 @@ box-shadow: 0px 10px 20px #212124 ;
   display: flex;
   text-align: center;
   height: 180px;
-  justify-content: right;
-  background-color: var(--blue);
+  color: #212124;
+  background-color: var(--white);
   font-size: 20px;
+  box-shadow: 0 7px 25px rgb(0 0 0 / 8%);
+  border-radius: 20px;
 }
 
 .card p {
@@ -253,31 +308,95 @@ box-shadow: 0px 10px 20px #212124 ;
   font-weight: 600;
   font-size: 18px;
   padding: 10px 15px;
-  color: #e6005a;
+  color: var(--blue);
   background-color: white;
   margin: 5px;
-  border-radius: 3px;
+  border-radius: 20px;
+  box-shadow: 0 7px 25px rgb(0 0 0 / 8%);
+  cursor: pointer;
 }
+.btn-chart:hover{
+  background-color: var(--blue);
+  color: var(--white);
+  transition: 0.5s ease-in-out;
+  
+}
+
+
 
 
 .bt-left{
  width: 100%;
-  
+ height: 60px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: 20px;
-  font-weight: 700;
+  box-sizing: border-box;
 }
+.bt-left > a{
+  
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  transition: 0.5s ease-in-out;
+  display: flex;
+  border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    
+}
+
 .bt-left > a:hover{
   align-items: center;
-  width: 90%;
-  height: 40px;
+  width: 100%;
+  height: 60px;
   background-color: var(--white);
   color: var(--blue);
   display: flex;
-  border-radius: 20px;
-  justify-content: center;
-}
-.btn-logout{
+  border-radius: 10px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
   
+}
+.marge{
+  margin-left: 30px;
+  
+}
+.classes-a{
+  margin-top:10vh;
+  height: 60vh;
+  justify-content: space-between;
+  
+}
+
+
+/* botao de saida*/
+.btn-logout{
+  width: 100%;
+ height: 60px;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 20px;
+  box-sizing: border-box;
+}
+
+
+.btn-logout:hover{
+  
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  background-color: var(--white);
+  color: var(--blue);
+  display: flex;
+  border-radius: 10px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  cursor: pointer;
+}
+
+.btn-logout > h3{
+  font-size: 16px;
+  align-items: center;
+  display: flex;
+  transition: 0.5s ease-in-out;
 }

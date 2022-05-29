@@ -2,11 +2,11 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../img/modelo-pronto.jpg" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcquaTec | Avisos</title>
+    <title>ColdTech | Avisos</title>
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="./dashboards.css">
@@ -18,39 +18,37 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), atualizarFeed()" style="background-color: #161618;">
-    <!-- <body onload="validarSessao()"> -->
+<body style="background-color: #161618;">
+    <!--onload="validarSessao(), atualizarFeed()"  <body onload="validarSessao()"> -->
 
     <div class="janela">
 
 
         <div class="header-left">
 
-            <h1>AcquaTec</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="cards.html">
-                    <h3>Aquários</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./dashboard.html">
-                    <h3>Gráficos</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav">
-                <h3>Mural de Avisos</h3>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
+            <div class="marge">
+                <h1>ColdTech</h1>
+      
+                <div class="hello">
+                  <h3>Bem vindo <span id="b_usuario">usuário</span>!</h3>
+                </div>
+      
+                <div class="classes-a">
+                  <div class="bt-left">
+                    <a href="cards.html">Frigorificos</a>
+                  </div>
+                  <div class="bt-left">
+                    <a href="dashboard.html">Gráficos</a>
+                  </div>
+                  <div class="bt-left">
+                    <a href="#">Mural de Avisos</a>
+                  </div>
+                </div>
+                <div class="btn-logout" onclick="limparSessao()">
+                  <i class="fa-solid fa-chart-line"></i>
+                  <h3>Sair</h3>
+                </div>
+              </div>
 
         </div>
 
@@ -87,8 +85,8 @@
 
 
 
-            <!-- MODAL -->
-            <!-- <div id="div_modal" class="div-modal">
+            
+             <div id="div_modal" class="div-modal">
                 <div id="modal_backdrop" onclick="fecharModal()" class="modal-backdrop">
                 </div>
                 <div id="modal_container" class="modal-container">
@@ -96,10 +94,10 @@
                 </div>
             </div> -->
 
-            <!-- AGUARDAR -->
-            <!-- <div id="div_aguardar" class="div-aguardar">
+            
+           <div id="div_aguardar" class="div-aguardar">
                 <img src="./assets/aguarde-pink3.gif" id="img_aguarde">
-            </div>  -->
+            </div>  
 
         </div>
     </div>

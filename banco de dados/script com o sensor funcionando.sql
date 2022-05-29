@@ -9,7 +9,7 @@ CREATE TABLE usuario (
     CNPJ VARCHAR(15),
     telefone  VARCHAR(15),
 	email VARCHAR(50),
-	senha VARCHAR(50)
+	senha VARCHAR(100)
 );
 
 CREATE TABLE empresa(
@@ -102,7 +102,7 @@ create table hist_medicao(
 );
 select * from hist_medicao;
 
-// arduino 
+
 
 CREATE TABLE dados(
 idDados INT PRIMARY KEY auto_increment, 

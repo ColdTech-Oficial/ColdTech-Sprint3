@@ -2,11 +2,11 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../img/modelo-pronto.jpg" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcquaTec | Dashboards</title>
+    <title>ColdTech | Dashboards</title>
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="dashboards.css">
@@ -21,48 +21,43 @@
     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
 
 </head>
-
-<body onload="validarSessao(), atualizarFeed()">
+<!--onload="validarSessao(), atualizarFeed()"-->
+<body >
 
     <div class="janela">
         <div class="header-left">
-            <h1>AcquaTec</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./cards.html">
-                    <h3>Aquários</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav">
-
-                <h3>Gráficos</h3>
-
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
-
+            <div class="marge">
+                <h1>ColdTech</h1>
+      
+                <div class="hello">
+                  <h3>Bem vindo <span id="b_usuario">usuário</span>!</h3>
+                </div>
+      
+                <div class="classes-a">
+                  <div class="bt-left">
+                    <a href="cards.html">Frigorificos</a>
+                  </div>
+                  <div class="bt-left">
+                    <a href="#.html">Gráficos</a>
+                  </div>
+                  <div class="bt-left">
+                    <a href="mural.html">Mural de Avisos</a>
+                  </div>
+                </div>
+                <div class="btn-logout" onclick="limparSessao()">
+                  <i class="fa-solid fa-chart-line"></i>
+                  <h3>Sair</h3>
+                </div>
+              </div>
         </div>
 
         <div class="dash">
             <div class="btns-dash">
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-                <button class="btn-chart btn-pink" onclick="obterDadosGrafico(1)">Aquario 1</button>
-                <button class="btn-chart btn-white" onclick="obterDadosGrafico(2)">Aquario 2</button>
-                <button class="btn-chart btn-white" onclick="obterDadosGrafico(3)">Aquario 3</button>
-                <button class="btn-chart btn-white" onclick="obterDadosGrafico(4)">Aquario 4</button>
+                <button class="btn-chart btn-pink" onclick="obterDadosGrafico(1)">Frigorifico 1</button>
+                <button class="btn-chart btn-white" onclick="obterDadosGrafico(2)">Frigorifico 2</button>
+                <button class="btn-chart btn-white" onclick="obterDadosGrafico(3)">Frigorifico 3</button>
+                <button class="btn-chart btn-white" onclick="obterDadosGrafico(4)">Frigorifico 4</button>
             </div>
             <div>
                 <h3 class="tituloGraficos">
