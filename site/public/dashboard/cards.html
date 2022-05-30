@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="dashboards.css" />
-
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <script src="../js/funcoes.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -26,24 +26,25 @@
     <div class="janela">
       <div class="header-left dash-header">
         <div class="marge">
-          <h1>ColdTech</h1>
-
-          <div class="hello">
-            <h3>Bem vindo <span id="b_usuario">usuário</span>!</h3>
-          </div>
-
-          <div class="classes-a">
-            <div class="bt-left">
-              <a href="#">Frigorificos</a>
+          <div class="marge">
+            <div class="logao">
+            <img src="../img/modelo-pronto.jpg"><h1> ColdTech</h1>
+        </div>
+            <div class="classes-a">
+              <div class="bt-left">
+                <a href="#"><i class='bx bxs-fridge'></i>Frigorificos</a>
+              </div>
+              <div class="bt-left">
+                 <a href="dashboard.html"><i class='bx bx-line-chart'></i>Gráficos</a>
+              </div>
+              <div class="bt-left">
+                <a href="https://coldtech.freshdesk.com/support/tickets/new" target="_blank"><i class='bx bx-help-circle'></i>Ajuda</a>
+             </div>
             </div>
-            <div class="bt-left">
-              <a href="dashboard.html">Gráficos</a>
+            <div class="btn-logout" onclick="limparSessao()">
+              
+              <h3><i class='bx bx-exit'></i>Sair</h3>
             </div>
-           
-          </div>
-          <div class="btn-logout" onclick="limparSessao()">
-            <i class="fa-solid fa-chart-line"></i>
-            <h3>Sair</h3>
           </div>
         </div>
       </div>
@@ -52,11 +53,11 @@
         <div class="regua">
           <div class="item-regua perigo-frio">
             <h4>Perigo</h4>
-            <h2>10°C</h2>
+            <h2>-10°C</h2>
           </div>
           <div class="item-regua alerta-frio">
             <h4>Alerta</h4>
-            <h2>1°C</h2>
+            <h2>-1°C</h2>
           </div>
           <div class="item-regua ideal">
             <h4>Ideal</h4>
@@ -87,6 +88,19 @@
   </body>
 
   <script>
+
+//Analitcs//
+
+
+
+
+
+//Analitcs//
+
+
+
+
+
     function atualizacaoPeriodica() {
       obterdados(1);
       obterdados(2);
@@ -131,11 +145,11 @@
 
     function alertar(temperatura, idAquario) {
       var limites = {
-        muito_quente: 23,
-        quente: 22,
-        ideal: 20,
-        frio: 10,
-        muito_frio: 5,
+        muito_quente: 10,
+        quente: 5,
+        ideal: 0,
+        frio: -5,
+        muito_frio: -10,
       };
 
       var classe_temperatura = "cor-alerta";
