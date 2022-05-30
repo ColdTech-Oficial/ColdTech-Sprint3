@@ -6,22 +6,20 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
     
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `select top ${limite_linhas}
-                        temperatura, 
-                        umidade, 
-                        momento,
-                        CONVERT(varchar, momento, 108) as momento_grafico
-                    from medida
-                    where fk_aquario = ${idAquario}
+                        LM35Temp, 
+                        dataHora, 
+                        CONVERT(varchar, dataHora, 108) as momento_grafico
+                    from dado
+                    where fksensor = ${idAquario}
                     order by id desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select 
-                        temperatura, 
-                        umidade, 
-                        momento,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico
-                    from medida
-                    where fk_aquario = ${idAquario}
-                    order by id desc limit ${limite_linhas}`;
+        instrucaoSql = `select
+                        LM35Temp, 
+                        dataHora,
+                        DATE_FORMAT(dataHora,'%H:%i:%s') as momento_grafico
+                    from Dado
+                    where fksensor = ${idAquario}
+                    order by idDado desc limit ${limite_linhas}`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -45,11 +43,11 @@ function buscarMedidasEmTempoReal(idAquario) {
         
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `select 
-                        temperatura, 
-                        umidade, DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
-                        fk_aquario 
-                        from medida where fk_aquario = ${idAquario} 
-                    order by id desc limit 1`;
+                        LM35Temp, 
+                        dataHora, DATE_FORMAT(dataHora,'%H:%i:%s') as momento_grafico, 
+                        fksensor 
+                        from dado where fksensor = ${idAquario} 
+                    order by idDado desc limit 1`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return

@@ -5,9 +5,7 @@ use coldtech;
 
 create table empresa
 (idempresa int primary key auto_increment,
-cnpj varchar (20),
 nomeEmpresa varchar (45),
-telefoneFixo varchar(45),
 telefoneCel varchar(45),
 cep varchar(45),
 numero varchar (45));
@@ -16,8 +14,10 @@ numero varchar (45));
 create table usuario
 (idusuario int primary key auto_increment,
 nome varchar(45),
+cnpj varchar (20),
+telefoneFixo varchar(45),
 email varchar(45),
-senha varchar (45),
+senha varchar (100),
 fkEmpresa int,
 foreign key (fkEmpresa) references empresa (idempresa));
 
@@ -28,33 +28,33 @@ foreign key (fkEmpresa) references empresa (idempresa));
 
 create table sensor
 (idsensor int primary key auto_increment,
-tipoSensor varchar (45),
+LM35 varchar (45),
 fkcaminhao int,
 foreign key (fkcaminhao) references caminhao (idcaminhao));
 
 create table dado
 (idDado int primary key auto_increment,
-dadosTemp double,
-dataHora datetime,
+LM35Temp double,
+dataHora datetime default current_timestamp,
 fksensor int,
 foreign key (fksensor) references sensor (idsensor));
 
-insert into usuario (nome,email,senha) values 
-('João','joao@email.com','101521'),
-('Vitoria','vitoria@email.com','312455'),
-('Pedro','pedro@email.com','346784'),
-('Josue','josue@gmail.com','212201'),
-('Victor','victor@gmail.com','667122'),
-('Roberto','roberto@email.com','141911');
+insert into usuario (nome,cnpj,telefoneFixo,email,senha) values 
+('João','01020304050','92365178','joao@email.com','101521'),
+('Vitoria','01020378950','92321168','vitoria@email.com','312455'),
+('Pedro','01123304050','923785173','pedro@email.com','346784'),
+('Josue','01028974050','92664478','josue@gmail.com','212201'),
+('Victor','01443304050','95565178','victor@gmail.com','667122'),
+('Roberto','01654304050','92365248','roberto@email.com','141911');
 
 
-insert into empresa (cnpj,nomeEmpresa,telefoneFixo,telefoneCel,cep,numero) values
-('01020304050','techCarne','92365178','998732156','01387544','172'),
-('01020378950','RoadCarne','92365178','998732156','01387544','72'),
-('01123304050','Carne n Carne','92365178','998732156','01387544','992'),
-('01028974050','Meat','92365178','998732156','01387544','782'),
-('01443304050','Irmaos Carne','92365178','998732156','01387544','342'),
-('01654304050','Niku Niku','92365178','998732156','01387544','512');
+insert into empresa (nomeEmpresa,telefoneCel,cep,numero) values
+('techCarne','998732156','01327244','172'),
+('RoadCarne','995753156','01387874','72'),
+('Carne n Carne','998732156','01884544','992'),
+('Meat','998732156','01312344','782'),
+('Irmaos Carne','998732156','013844434','342'),
+('Niku Niku','998732156','01387575','512');
 
 
 insert into caminhao (idcaminhao) values
@@ -65,7 +65,7 @@ insert into caminhao (idcaminhao) values
 (5),
 (6);
 
-insert into sensor (tipoSensor) values
+insert into sensor (LM35) values
 ('Lm35'),
 ('Lm35'),
 ('Lm35'),
@@ -73,7 +73,7 @@ insert into sensor (tipoSensor) values
 ('Lm35'),
 ('Lm35');
 
-insert into dado (dadosTemp,datahora) values
+insert into dado (LM35Temp,datahora) values
 ('15.2','2022-01-01-13.51'),
 ('10.2','2022-10-29-14.00'),
 ('09.2','2022-11-25-06.01'),

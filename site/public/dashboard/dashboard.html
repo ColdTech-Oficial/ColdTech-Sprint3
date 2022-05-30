@@ -20,6 +20,16 @@
     <!-- scripts do Chart.js -->
     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
 
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script> -->
+    <!-- <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script> -->
+    <!-- <script src="http://www.chartjs.org/samples/latest/utils.js"></script> -->
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
 </head>
 <!--onload="validarSessao(), atualizarFeed()"-->
 <body >
@@ -40,9 +50,6 @@
                   <div class="bt-left">
                     <a href="#.html">Gráficos</a>
                   </div>
-                  <div class="bt-left">
-                    <a href="mural.html">Mural de Avisos</a>
-                  </div>
                 </div>
                 <div class="btn-logout" onclick="limparSessao()">
                   <i class="fa-solid fa-chart-line"></i>
@@ -61,14 +68,24 @@
             </div>
             <div>
                 <h3 class="tituloGraficos">
-                    <span id="tituloAquario">123</span>
+                    <div class="grafico1">
+                        <h1>Grafico de Temperatura</h1>
+                        <section style="width: 67vw;">
+                            <canvas id="lm35Temperatura"></canvas>
+                        </section>
+                    </div>
+                    <div class="grafico2" style="display: none;">
+                        <h1>Grafico de Temperatura</h1>
+                        <section style="width: 60vw;">
+                            <canvas id="lm35Temperatura"></canvas>
+                        </section>
+                    </div>
                 </h3>
             </div>
-            <div class="graph">
-                <canvas id="canvas_grafico"></canvas>
-            </div>
+           
         </div>
     </div>
+    
 
 
 </body>
@@ -81,14 +98,16 @@
 
     window.onload = obterDadosGrafico(1);
 
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    verificar_autenticacao();
+    // verificar_autenticacao();
 
     function alterarTitulo(idAquario) {
         var tituloAquario = document.getElementById("tituloAquario")
-        tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idAquario + "</span>"
+        tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #287bff'>Frigorifico " + idAquario + "</span>"
     }
+
+    
 
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
@@ -102,7 +121,7 @@
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
     function obterDadosGrafico(idAquario) {
-        alterarTitulo(idAquario)
+        // alterarTitulo(idAquario)
 
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
@@ -162,47 +181,47 @@
 
         console.log(JSON.stringify(dados));
 
-        var ctx = canvas_grafico.getContext('2d');
-        window.grafico_linha = Chart.Line(ctx, {
-            data: dados,
-            options: {
-                responsive: true,
-                animation: { duration: 500 },
-                hoverMode: 'index',
-                stacked: false,
-                title: {
-                    display: false,
-                    text: 'Dados capturados'
-                },
-                scales: {
-                    yAxes: [{
-                        type: 'linear',
-                        display: true,
-                        position: 'left',
-                        id: 'y-temperatura',
-                        ticks: {
-                            beginAtZero: true,
-                            max: 100,
-                            min: 0
-                        }
-                    }, {
-                        type: 'linear',
-                        display: false,
-                        position: 'right',
-                        id: 'y-umidade',
-                        ticks: {
-                            beginAtZero: true,
-                            max: 100,
-                            min: 0
-                        },
+        // var ctx = canvas_grafico.getContext('2d');
+        // window.grafico_linha = Chart.Line(ctx, {
+        //     data: dados,
+        //     options: {
+        //         responsive: true,
+        //         animation: { duration: 500 },
+        //         hoverMode: 'index',
+        //         stacked: false,
+        //         title: {
+        //             display: false,
+        //             text: 'Dados capturados'
+        //         },
+        //         scales: {
+        //             yAxes: [{
+        //                 type: 'linear',
+        //                 display: true,
+        //                 position: 'left',
+        //                 id: 'y-temperatura',
+        //                 ticks: {
+        //                     beginAtZero: true,
+        //                     max: 100,
+        //                     min: 0
+        //                 }
+        //             }, {
+        //                 type: 'linear',
+        //                 display: false,
+        //                 position: 'right',
+        //                 id: 'y-umidade',
+        //                 ticks: {
+        //                     beginAtZero: true,
+        //                     max: 100,
+        //                     min: 0
+        //                 },
 
-                        gridLines: {
-                            drawOnChartArea: false,
-                        },
-                    }],
-                }
-            }
-        });
+        //                 gridLines: {
+        //                     drawOnChartArea: false,
+        //                 },
+        //             }],
+        //         }
+        //     }
+        // });
 
         setTimeout(() => atualizarGrafico(idAquario, dados), 2000);
     }
@@ -248,4 +267,83 @@
             });
 
     }
+
+
+
+
+    /* -- lm35Temperatura */
+    var contextoLm35Temperatura = document.getElementById('lm35Temperatura').getContext('2d');
+        contextoLm35Temperatura.canvas.width = 1000;
+        contextoLm35Temperatura.canvas.height = 300;
+        var lm35Temperatura = new Chart(
+            contextoLm35Temperatura,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Temperatura',
+                        type: 'line',
+                        borderColor: ['#222'],
+                        backgroundColor: ['#287bff']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Temperatura'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+
+        var paginacao = {};
+        var tempo = {};
+        function obterDados(grafico, endpoint) {
+            var http = new XMLHttpRequest();
+            http.open('GET', 'http://localhost:3000/sensores/' + endpoint, false);
+            http.send(null);
+            var valores = JSON.parse(http.responseText);
+            if (paginacao[endpoint] == null) {
+                paginacao[endpoint] = 0;
+            }
+            if (tempo[endpoint] == null) {
+                tempo[endpoint] = 0;
+            }
+            // Exibir à partir do último elemento exibido anteriormente
+            var ultimaPaginacao = paginacao[endpoint];
+            paginacao[endpoint] = valores.length;
+            var valores = valores.slice(ultimaPaginacao);
+            valores.forEach((valor) => {
+                //Máximo de 60 itens exibidos no gráfico
+                if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
+                    grafico.data.labels.shift();
+                    grafico.data.datasets[0].data.shift();
+                }
+
+                grafico.data.labels.push(tempo[endpoint]++);
+                grafico.data.datasets[0].data.push(parseFloat(valor));
+                grafico.update();
+            })
+        }
+
+        setInterval(() => {
+            obterDados(lm35Temperatura, 'lm35/temperatura');
+        }, 1000);
+
 </script>

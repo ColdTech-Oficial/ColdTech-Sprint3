@@ -1,5 +1,3 @@
-#include "DHT.h"
-#define dht_type DHT11 //define qual o tipo de sensor DHTxx que se está utilizando
  
 
 /**
@@ -7,20 +5,16 @@
  * DHT11, LM35, LDR5 e TCRT5000
  */
  
-int dht_pin = A2;
-DHT dht_1 = DHT(dht_pin, dht_type); //pode-se configurar diversos sensores DHTxx
 
 int lm35_pin = A0, leitura_lm35 = 0;
 float temperatura;
-
-int ldr_pin = A5, leitura_ldr = 0;
 
 int switch_pin = 7;
 
 void setup() 
 {
   Serial.begin(9600);
-  dht_1.begin();
+  
   pinMode(switch_pin, INPUT);
 }
  
