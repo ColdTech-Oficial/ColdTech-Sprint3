@@ -35,9 +35,9 @@ function buscarMedidasEmTempoReal(idAquario) {
     
     if (process.env.AMBIENTE_PROCESSO == "producao") {       
         instrucaoSql = `select top 1
-                        temperatura, 
-                        umidade, CONVERT(varchar, momento, 108) as momento_grafico, 
-                        fk_aquario 
+                        LM35Temp, 
+                        dataHora, CONVERT(varchar, dataHora, 108) as momento_grafico, 
+                        fksensor 
                         from medida where fk_aquario = ${idAquario} 
                     order by id desc`;
         
