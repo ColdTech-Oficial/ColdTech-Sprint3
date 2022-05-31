@@ -51,11 +51,11 @@
 
       <div class="dash">
         <div class="regua">
-          <div class="item-regua perigo-frio">
+          <div id="perigo_quente" class="item-regua perigo-frio">
             <h4>Perigo</h4>
             <h2>-10°C</h2>
           </div>
-          <div class="item-regua alerta-frio">
+          <div id="alerta_frio" class="item-regua alerta-frio">
             <h4>Alerta</h4>
             <h2>-1°C</h2>
           </div>
@@ -63,11 +63,11 @@
             <h4>Ideal</h4>
             <h2>0°C</h2>
           </div>
-          <div class="item-regua alerta-quente">
+          <div id="alerta_quente" class="item-regua alerta-quente">
             <h4>Alerta</h4>
             <h2>5°C</h2>
           </div>
-          <div class="item-regua perigo-quente">
+          <div id="perigo_quente" class="item-regua perigo-quente">
             <h4>Perigo</h4>
             <h2>10°C</h2>
           </div>
@@ -197,42 +197,57 @@
       card.className = classe_temperatura;
     }
 
-    fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (novoRegistro) {
+    function atualizarGrafico(idAquario, dados) {
 
-                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                    console.log(`Dados atuais do gráfico: ${dados}`);
+fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (novoRegistro) {
 
-                    // tirando e colocando valores no gráfico
-                    dados.labels.shift(); // apagar o primeiro
-                    dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-                    
-                    dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                    dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
-                    
-                    dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-                    dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+            console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+            console.log(`Dados atuais do gráfico: ${dados}`);
 
-                    window.grafico_linha.update();
+            // tirando e colocando valores no gráfico
+            dados.labels.shift(); // apagar o primeiro
+            dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+            
+            dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+            dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
+            
+            dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
+            dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
 
-                  novoRegistro[0].temperatura
-
-                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 2000);
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 2000);
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-
+            window.grafico_linha.update();
+            novoRegistro[0].temperatura
             var temp = novoRegistro[0].temperatura
 
-            temp_aquario_3.innerHTML = `${temp}°C`
+                    if (temp>=10) {
+                        perigo_quente.style.backgroundColor ='red'
+                        alert(`Atenção! Frigorífico perigosamente quente, favor verificar temperatura`)  
+                    } if (temp>5&&temp<10) {
+                        alerta_quente.style.backgroundColor ='yellow'
+                        alert(`Atenção! Frigorífico mais quente que o recomendado, favor verificar temperatura`)
+                    } if (temp< -1&&temp> -10) {
+                        alerta_frio.style.backgroundColor ='yellow'
+                        alert(`Atenção! Frigorífico mais frio que o recomendado, favor verificar temperatura`)
+                    } if (temp< -10) {
+                        alerta_frio.style.backgroundColor ='red'
+                        alert(`Atenção! Frigorífico perigosamente frio, favor verificar temperatura`)
+                    }
+
+            // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+            proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 2000);
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+        // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+        proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 2000);
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+
+}
+
   </script>
 </html>

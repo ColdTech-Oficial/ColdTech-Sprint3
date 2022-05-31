@@ -251,6 +251,21 @@
                     dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
 
                     window.grafico_linha.update();
+                    var temp = novoRegistro[0].temperatura
+
+                    if (temp>=10) {
+                        perigo_quente.style.backgroundColor ='red'
+                        alert(`Atenção! Frigorífico perigosamente quente, favor verificar temperatura`)  
+                    } if (temp>5&&temp<10) {
+                        alerta_quente.style.backgroundColor ='yellow'
+                        alert(`Atenção! Frigorífico mais quente que o recomendado, favor verificar temperatura`)
+                    } if (temp< -1&&temp> -10) {
+                        alerta_frio.style.backgroundColor ='yellow'
+                        alert(`Atenção! Frigorífico mais frio que o recomendado, favor verificar temperatura`)
+                    } if (temp<= -10) {
+                        alerta_frio.style.backgroundColor ='red'
+                        alert(`Atenção! Frigorífico perigosamente frio, favor verificar temperatura`)
+                    }
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
                     proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 2000);
@@ -283,7 +298,7 @@ console.log(lm35Temperatura)
                         label: 'Temperatura',
                         type: 'line',
                         borderColor: ['#222'],
-                        backgroundColor: ['#287bff']
+                        backgroundColor: ['#287bff'],
                     }]
                 },
                 options: {
